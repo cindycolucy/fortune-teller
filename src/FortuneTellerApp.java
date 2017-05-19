@@ -9,19 +9,26 @@ public class FortuneTellerApp {
 
 		System.out.println("Enter your first name.");
 		String firstName = input.nextLine();
-
+		checkForQuit(firstName);
+		
 		System.out.println("Enter your last name.");
 		String lastName = input.nextLine();
+		checkForQuit(lastName);
 
 		System.out.println("Enter your age.");
-		int age = input.nextInt();
+		String x = input.next();
+        checkForQuit(x);
+        int age = Integer.parseInt(x);
 
 		System.out.println("Enter your birth month number 1-12.");
-		int birthMonth = input.nextInt();
+		String y = input.next();
+        checkForQuit(y);
+        int birthMonth = Integer.parseInt(y);
 
 		System.out.println(
 				"Enter your favorite ROYGBIV color. If you don't know what a ROYGBIV color is enter \"Help.\"");
 		String color = input.next();
+		checkForQuit(color);
 		if (color.equalsIgnoreCase("red") || color.equalsIgnoreCase("orange") || color.equalsIgnoreCase("yellow")
 				|| color.equalsIgnoreCase("green") || color.equalsIgnoreCase("blue") || color.equalsIgnoreCase("indigo")
 				|| color.equalsIgnoreCase("violet")) {
@@ -31,6 +38,7 @@ public class FortuneTellerApp {
 			System.out.println(
 					"Enter your favorite ROYGBIV color. If you don't know what a ROYGBIV color is enter \"Help.\"");
 			color = input.next();
+			checkForQuit(color);
 			if (color.equalsIgnoreCase("red") || color.equalsIgnoreCase("orange") || color.equalsIgnoreCase("yellow")
 					|| color.equalsIgnoreCase("green") || color.equalsIgnoreCase("blue")
 					|| color.equalsIgnoreCase("indigo") || color.equalsIgnoreCase("violet")) {
@@ -39,7 +47,9 @@ public class FortuneTellerApp {
 			}
 		}
 		System.out.println("Enter your number of siblings.");
-		int siblings = input.nextInt();
+		String z = input.next();
+        checkForQuit(z);
+        int siblings = Integer.parseInt(z);
 
 		int retireYears = 0;
 		if (age % 2 == 1) {
@@ -111,5 +121,12 @@ public class FortuneTellerApp {
 		System.out.println(firstName + " " + lastName + " will retire in " + retireYears + " years with " + money
 				+ " in the bank, a vacation home in " + vacaHome + " and a " + modeOfTransportation + ".");
 
+	}
+
+	public static void checkForQuit(String input) {
+		if (input.equalsIgnoreCase("Quit")) {
+			System.out.println("Nobody likes a quitter...");
+			System.exit(0);
+		}
 	}
 }
