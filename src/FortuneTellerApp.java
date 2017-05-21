@@ -1,30 +1,44 @@
 import java.util.Scanner;
 
 public class FortuneTellerApp {
+	
+	//Check for quit
+	public static void checkForQuit(String input) {
+		if (input.equalsIgnoreCase("Quit")) {
+			System.out.println("Nobody likes a quitter...");
+			System.exit(0);
+		}
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+				
+		System.out.println("Type \"Quit\" to quit any time.");
 
 		Scanner input = new Scanner(System.in);
-
+		
+		//Input first name
 		System.out.println("Enter your first name.");
 		String firstName = input.nextLine();
 		checkForQuit(firstName);
-		
+
+		//Inout last name
 		System.out.println("Enter your last name.");
 		String lastName = input.nextLine();
 		checkForQuit(lastName);
 
+		//Input age
 		System.out.println("Enter your age.");
 		String x = input.next();
-        checkForQuit(x);
-        int age = Integer.parseInt(x);
+		checkForQuit(x);
+		int age = Integer.parseInt(x);
 
+		//Input birth month
 		System.out.println("Enter your birth month number 1-12.");
 		String y = input.next();
-        checkForQuit(y);
-        int birthMonth = Integer.parseInt(y);
-
+		checkForQuit(y);
+		int birthMonth = Integer.parseInt(y);
+		
+		//Input color
 		System.out.println(
 				"Enter your favorite ROYGBIV color. If you don't know what a ROYGBIV color is enter \"Help.\"");
 		String color = input.next();
@@ -46,11 +60,14 @@ public class FortuneTellerApp {
 				System.out.println("Red, Orange, Yellow, Green, Blue, Indigo or Violet.");
 			}
 		}
+		
+		//Input siblings
 		System.out.println("Enter your number of siblings.");
 		String z = input.next();
-        checkForQuit(z);
-        int siblings = Integer.parseInt(z);
+		checkForQuit(z);
+		int siblings = Integer.parseInt(z);
 
+		//Output retire years
 		int retireYears = 0;
 		if (age % 2 == 1) {
 			retireYears = 15;
@@ -58,6 +75,7 @@ public class FortuneTellerApp {
 			retireYears = 20;
 		}
 
+		//Output vacation home
 		String vacaHome;
 		if (siblings < 0) {
 			vacaHome = "Cleveland";
@@ -80,6 +98,8 @@ public class FortuneTellerApp {
 				break;
 			}
 		}
+		
+		//Output mode of transportation
 		String modeOfTransportation = color;
 		switch (color) {
 		case "red":
@@ -104,6 +124,7 @@ public class FortuneTellerApp {
 			modeOfTransportation = "Airplane";
 			break;
 		}
+		//Output money
 		String money = "none";
 		if (birthMonth == 1 || birthMonth == 2 || birthMonth == 3 || birthMonth == 4) {
 			money = ("$40,000");
@@ -118,15 +139,9 @@ public class FortuneTellerApp {
 			money = ("$0");
 
 		}
+		//Final fortune
 		System.out.println(firstName + " " + lastName + " will retire in " + retireYears + " years with " + money
 				+ " in the bank, a vacation home in " + vacaHome + " and a " + modeOfTransportation + ".");
 
-	}
-
-	public static void checkForQuit(String input) {
-		if (input.equalsIgnoreCase("Quit")) {
-			System.out.println("Nobody likes a quitter...");
-			System.exit(0);
-		}
 	}
 }
